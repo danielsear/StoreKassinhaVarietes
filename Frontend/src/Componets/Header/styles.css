@@ -1,0 +1,119 @@
+#header_container{
+ 
+  background: #F8EEDB;
+  color: #202020;
+
+  display: flex;
+  align-items: center;
+
+  height: 7rem;
+  
+}
+
+.logo{
+  width: 30%;
+  font-family: 'Lobster', cursive;
+  font-size:2.5rem ;
+  margin-left: 1rem;
+  
+}
+.pesquisa{
+  width: 50%;
+}
+
+.user_menu{
+  width: 20%;
+}
+
+.user_menu a{
+  display: flex;
+
+  align-items: center;
+  margin: .5rem;
+
+  text-decoration: none;
+  color: #202020;
+
+  font-family: 'Roboto', sans-serif;
+
+  transition: .2s;
+}
+
+.user_menu a:hover{
+  color: #e6b967;
+  text-decoration: underline;
+} 
+
+.user_menu i {
+  margin-right: .5rem;
+}
+.user_menu div img {
+  width: 3.5rem;
+  height: 3.5rem;
+
+  border-radius: 50%;
+}
+.show_user_info{
+  display: flex;
+}
+.show_user_info img{
+  margin-right: .75rem;
+}
+.search{
+  display: flex;
+  margin-top: 1rem;
+}
+
+.search input{
+    width: 70%;
+    border-radius: 1.5rem 0 0 1.5rem;
+    border: 0;
+    padding: .75rem;
+
+    background: #fff;
+}
+
+.search input:focus{
+  border: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.search button{
+  width: 15%;
+  border-radius: 0 1.5rem 1.5rem 0;
+  border: 0;
+
+  cursor: pointer;
+
+  background: #fff
+}
+.search button:hover{
+    background: #f7e2bd;
+}
+
+
+.show_menu{
+  width: 8rem;
+  height: 8rem;
+
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+
+ 
+}
+.show_menu p{
+  background: #eee6e6;
+  margin: 0;
+  border: 1px solid #202020;
+
+  cursor: pointer;
+
+  padding: .2rem;
+}
+.show_menu p:first-child{
+  background: red;
+}
+

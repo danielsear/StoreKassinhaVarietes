@@ -32,7 +32,7 @@ function Header() {
               </div>
             </div>
           ) : (
-            <a href="#userMenu">
+            <a href="/form/login">
               <i>
                 <img src={userMenu} alt="Menu do usuário" />
               </i>

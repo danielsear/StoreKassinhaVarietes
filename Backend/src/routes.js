@@ -22,4 +22,12 @@ routes.post('/image', multer(multerConfig).single('file'), async (req, res) => {
   return res.json(image)
 })
 
+routes.post('/image/:id', async (req, res) => {
+  const image = await Image.findById(req.params.id)
+
+  await image.remove()
+
+  return res.json({ message: 'Image deletada com sucesso.' })
+})
+
 module.exports = routes

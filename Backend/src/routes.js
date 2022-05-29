@@ -3,6 +3,8 @@ const multer = require('multer')
 const multerConfig = require('./config/multer')
 
 const Image = require('./models/Image')
+const User = require('./models/User')
+const Product = require('./models/Products')
 
 //IMAGES
 

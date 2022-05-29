@@ -30,4 +30,30 @@ routes.post('/image/:id', async (req, res) => {
   return res.json({ message: 'Image deletada com sucesso.' })
 })
 
+//USERS
+
+routes.post('/user', async (req, res) => {
+  const { name, key, email, password, admin } = req.body
+  const user = await User.create({ name, key, email, password, admin })
+  return res.json(user)
+})
+
+routes.get('/users', async (req, res) => {
+  const users = await User.find()
+  return res.json(users)
+})
+
+routes.get('/user:id', async (req, res) => {
+  const user = await User.findById(req.params.id)
+  return res.json(user)
+})
+
+routes.post('/user/:id', async (req, res) => {
+  const user = await User.findById(req.params.id)
+
+  await user.remove()
+
+  return res.json({ message: 'Usuario deletado com sucesso.' })
+})
+
 module.exports = routes

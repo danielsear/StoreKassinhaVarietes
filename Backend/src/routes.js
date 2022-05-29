@@ -56,4 +56,37 @@ routes.post('/user/:id', async (req, res) => {
   return res.json({ message: 'Usuario deletado com sucesso.' })
 })
 
+//PRODUCTS
+
+routes.get('/products', async (req, res) => {
+  const products = await Product.find()
+  return res.json(products)
+})
+
+routes.post('/product', async (req, res) => {
+  const { title, spotPrice, forwardPrice, Idphoto } = req.body
+
+  const product = await Product.create({
+    title,
+    spotPrice,
+    forwardPrice,
+    Idphoto
+  })
+  return res.json(product)
+})
+
+routes.get('/product/:id', async (req, res) => {
+  const product = await Product.findById(req.params.id)
+
+  return res.json(product)
+})
+
+routes.post('/product/:id', async (req, res) => {
+  const product = await Product.findById(req.params.id)
+
+  await product.remove()
+
+  return res.json('Produto deletado com sucesso.')
+})
+
 module.exports = routes

@@ -1,5 +1,7 @@
+import Home from './Componets/Home'
+
 function App() {
-  return <h1>Store</h1>
+  return <Home />
 }
 
 export default App

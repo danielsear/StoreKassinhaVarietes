@@ -1,7 +1,5 @@
 import './styles.css'
 
-import { Link } from 'react-router-dom'
-
 import Search from '../../assets/images/search_icon.svg'
 import userMenu from '../../assets/images/user-enter1.svg'
 

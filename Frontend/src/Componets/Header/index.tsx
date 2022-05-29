@@ -1,8 +1,14 @@
 import './styles.css'
 
+import { Link } from 'react-router-dom'
+
 import Search from '../../assets/images/search_icon.svg'
+import userMenu from '../../assets/images/user-enter1.svg'
+
+import { useState } from 'react'
 
 function Header() {
+  const [user, setUser] = useState('')
   return (
     <div id="header_container">
       <section className="logo">Kassinha Variedades</section>
@@ -16,12 +22,23 @@ function Header() {
       </section>
       <section className="user_menu">
         <div className="show_user_info">
-          <img src={'#'} alt={'foto do usuario'} />
-          <div>
-            <strong>Name do usuario</strong>
-            <br />
-            <p> 'Olá, seja bem vindo!'</p>
-          </div>
+          {user ? (
+            <div>
+              <img src={'#'} alt={'foto do usuario'} />
+              <div>
+                <strong>Name do usuario</strong>
+                <br />
+                <p> 'Olá, seja bem vindo!'</p>
+              </div>
+            </div>
+          ) : (
+            <a href="#userMenu">
+              <i>
+                <img src={userMenu} alt="Menu do usuário" />
+              </i>
+              Entrar
+            </a>
+          )}
         </div>
       </section>
     </div>

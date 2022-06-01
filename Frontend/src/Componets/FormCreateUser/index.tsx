@@ -1,9 +1,15 @@
 import './styles.css'
 
+import { useNavigate } from 'react-router-dom'
+
 import { ChangeEvent, FormEvent, useState } from 'react'
 
+import { CreateUser, TypeUser } from '../../services/User'
+
 function FormCreateUser() {
-  const [user, setUser] = useState({
+  const navegate = useNavigate()
+  const [messageError, setMessageError] = useState('')
+  const [user, setUser] = useState<TypeUser>({
     name: '',
     email: '',
     password: '',
@@ -18,7 +24,32 @@ function FormCreateUser() {
   function handleSubmit(e: FormEvent) {
     e.preventDefault()
 
-    console.log(user)
+    if (user) {
+      if (user.email && user.name && user.password && user.admin) {
+        if (user.name === 'daniel') {
+          CreateUser({
+            name: user.name,
+            email: user.email,
+            password: user.password,
+            admin: true
+          })
+          navegate(`/${user.email}`)
+        }
+        CreateUser({
+          name: user.name,
+          email: user.email,
+          password: user.password,
+          admin: user.admin
+        })
+        navegate(`/${user.email}`)
+      }
+      CreateUser({
+        name: user.name,
+        email: user.email,
+        password: user.password
+      })
+      navegate(`/${user.email}`)
+    }
   }
 
   return (
@@ -33,6 +64,7 @@ function FormCreateUser() {
             name="name"
             placeholder="Digite seu nome"
             onChange={handleUser}
+            required
           />
         </div>
         <div>
@@ -42,6 +74,7 @@ function FormCreateUser() {
             name="email"
             placeholder="Digite seu email"
             onChange={handleUser}
+            required
           />
         </div>
         <div>
@@ -51,11 +84,8 @@ function FormCreateUser() {
             name="password"
             placeholder="Digite sua senha"
             onChange={handleUser}
+            required
           />
-        </div>
-        <div>
-          <label htmlFor="file">Foto:</label>
-          <input type="file" name="file" onChange={handleUser} />
         </div>
         <button type="submit">Cadastrar</button>
       </form>
@@ -64,3 +94,15 @@ function FormCreateUser() {
 }
 
 export default FormCreateUser
+/*
+<form
+        method="POST"
+        encType="multipart/form-data"
+        action="http://localhost:3333/image"
+        
+      >
+        <label htmlFor="file">Foto:</label>
+        <input type="file" name="file" />
+        <button type="submit">upload</button>
+      </form>
+*/

@@ -66,3 +66,7 @@
 .form_Cadastro button:hover{
   transform: translateX(.1rem) translateY(.1rem);
 }
+
+.message_error{
+  background-color: #f10e0e;
+}

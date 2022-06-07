@@ -5,6 +5,7 @@ export type User = {
   email: string
   password: string
   admin?: boolean
+  file?: string
 }
 
 async function CreateUser(user: User) {

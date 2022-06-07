@@ -106,6 +106,9 @@
 .menu_go_out{
   display: flex;
   justify-content: center;
+  cursor: pointer;
+  
+  
 }
 .menu_go_out strong{
  text-decoration: underline;

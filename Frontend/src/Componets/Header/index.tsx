@@ -4,26 +4,18 @@ import Search from '../../assets/images/search_icon.svg'
 import userMenu from '../../assets/images/user-enter1.svg'
 import gear from '../../assets/images/1496969503-gear_84694.svg'
 import { useEffect, useState } from 'react'
-import { FindOneUsers, FindUsers } from '../../services/User'
+import { FindUsers, User } from '../../services/User'
+import { useNavigate } from 'react-router-dom'
 
 type HeaderProps = {
   userId?: string
 }
 
-type userType = {
-  userId: string
-  name: string
-  email: string
-  password: string
-  id: string
-  file: string
-  admin?: string
-}
-
-type arrayUsers = userType[]
+type arrayUsers = User[]
 
 function Header({ userId }: HeaderProps) {
-  const [user, setUser] = useState<userType>()
+  const [user, setUser] = useState<User | null>()
+  const navegate = useNavigate()
 
   async function getUser() {
     const dataUser: arrayUsers = await FindUsers()
@@ -35,11 +27,14 @@ function Header({ userId }: HeaderProps) {
     }
   }
 
-  console.log(user)
-
   useEffect(() => {
     getUser()
   }, [])
+
+  function LogOut() {
+    setUser(null)
+    navegate('/')
+  }
 
   return (
     <div id="header_container">
@@ -68,7 +63,7 @@ function Header({ userId }: HeaderProps) {
                     Configurações
                   </span>
                 </div>
-                <div className="menu_go_out">
+                <div className="menu_go_out" onClick={LogOut}>
                   <strong>Sair</strong>
                 </div>
               </div>

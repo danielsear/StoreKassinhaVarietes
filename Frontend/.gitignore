@@ -4,8 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
-/Reade.md
-/tmp
+/Read.md
+src/assets
 
 # testing
 /coverage

@@ -35,8 +35,8 @@ routes.post('/image/:id', async (req, res) => {
 //USERS
 
 routes.post('/user', async (req, res) => {
-  const { name, key, email, password, admin } = req.body
-  const user = await User.create({ name, key, email, password, admin })
+  const { name, key, email, password, admin, userId } = req.body
+  const user = await User.create({ name, key, email, password, admin, userId })
   return res.json(user)
 })
 

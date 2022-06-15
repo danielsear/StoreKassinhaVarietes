@@ -23,10 +23,19 @@
 
   height: 7rem;
 }
+.form_quadro{
+  width: 70%;
+  display: flex;
+}
 
 .form_Cadastro{
-  width: 40%;
+  width: 60%;
+  margin-right: 2rem;
 }
+.show-image img{
+  border-radius: 50%;
+}
+
 
 .form_Cadastro div{
   width: 100%;
